@@ -1,4 +1,10 @@
+require('dotenv').config()
+const { BASE_URL, CLIENT_URL } = process.env
 export default {
+  env: {
+    BASE_URL,
+    CLIENT_URL,
+  },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
@@ -24,6 +30,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/api.js',
+    '~/plugins/axios.js',
+    '~/plugins/persistedstate.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
