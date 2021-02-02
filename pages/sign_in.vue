@@ -1,16 +1,20 @@
 <template>
-  <form>
-    <p v-if="$route.query.error==1">{{ messages.signinFaild }}</p>
-    <input type="text" v-model="email">
-    <input type="password" v-model="password">
-    <button type="button" @click="signIn()"></button>
-  </form>
+  <vform class="container" :is-center="true" btn-msg="Sign in" @click="signIn()">
+    <p class="has-text-danger" v-if="$route.query.error">{{ messages.signinFaild }}</p>
+    <b-field label="メールアドレス">
+      <b-input v-model="email" />
+    </b-field>
+    <b-field label="パスワード">
+      <b-input type="password" v-model="password"></b-input>
+    </b-field>
+  </vform>
 </template>
 
 <script>
 import messages from '~/const/messages'
 import urls from '~/const/urls'
 import { mapActions } from 'vuex'
+import vform from '~/components/Form'
 export default {
   data() {
     return {
@@ -18,6 +22,9 @@ export default {
       password: '',
       messages: messages
     }
+  },
+  components: {
+    vform
   },
   methods: {
     ...mapActions('authInfo', ['setAuthInfo']),
