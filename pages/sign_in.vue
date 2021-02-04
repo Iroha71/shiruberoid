@@ -1,13 +1,15 @@
 <template>
-  <vform class="container" :is-center="true" btn-msg="Sign in" @click="signIn()">
-    <p class="has-text-danger" v-if="$route.query.error">{{ messages.signinFaild }}</p>
-    <b-field label="メールアドレス">
-      <b-input v-model="email" />
-    </b-field>
-    <b-field label="パスワード">
-      <b-input type="password" v-model="password"></b-input>
-    </b-field>
-  </vform>
+  <div class="columns">
+    <vform class="column is-4 is-offset-4" title="SIGN IN" :is-center="true" btn-msg="sign in" @click="signIn()">
+      <p class="has-text-danger" v-if="$route.query.error">{{ messages.signinFaild }}</p>
+      <b-field label="mail adress">
+        <b-input v-model="email" />
+      </b-field>
+      <b-field label="password">
+        <b-input type="password" v-model="password"></b-input>
+      </b-field>
+    </vform>
+  </div>
 </template>
 
 <script>
