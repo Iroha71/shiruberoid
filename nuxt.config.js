@@ -1,4 +1,10 @@
+require('dotenv').config()
+const { BASE_URL, CLIENT_URL } = process.env
 export default {
+  env: {
+    BASE_URL,
+    CLIENT_URL,
+  },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
@@ -20,10 +26,18 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/style.scss',
   ],
+
+  styleResources: {
+    scss: ['~/assets/style.scss']
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/api.js',
+    '~/plugins/axios.js',
+    '~/plugins/persistedstate.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,6 +53,8 @@ export default {
     'nuxt-buefy',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'nuxt-client-init-module',
+    '@nuxtjs/style-resources',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -46,5 +62,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  router: {
+    middleware: 'authChecker',
   }
 }

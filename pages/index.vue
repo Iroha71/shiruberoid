@@ -1,6 +1,7 @@
 <template>
   <section class="section">
     <div class="columns is-mobile">
+      <button @click="getTest()">aaa</button>
       <card
         title="Free"
         icon="github"
@@ -48,6 +49,11 @@ export default {
 
   components: {
     Card
+  },
+  methods: {
+    async getTest() {
+      console.log(await this.$api.kanban.index())
+    }
   }
 }
 </script>
