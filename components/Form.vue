@@ -1,5 +1,5 @@
 <template>
-  <div class="vform">
+  <div class="vform" :style="{ height: height }">
     <form class="section">
       <div class="titlebox">
         <p>{{ title }}</p>
@@ -8,6 +8,7 @@
       <b-field class="has-text-centered">
         <b-button @click="igniteEvent()">{{ btnMsg }}</b-button>
       </b-field>
+      <slot name="footer" />
     </form>
   </div>
 </template>

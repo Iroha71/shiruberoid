@@ -1,6 +1,10 @@
-<template>
+<template lang="html">
   <div class="columns">
-    <vform class="column is-4 is-offset-4" title="SIGN IN" :is-center="true" btn-msg="sign in" @click="signIn()">
+    <vform class="column is-4 is-offset-4"
+          title="SIGN IN" 
+          :is-center="true" 
+          btn-msg="sign in" 
+          @click="signIn()">
       <p class="has-text-danger" v-if="$route.query.error">{{ messages.signinFaild }}</p>
       <b-field label="mail adress">
         <b-input v-model="email" />
@@ -8,6 +12,11 @@
       <b-field label="password">
         <b-input type="password" v-model="password"></b-input>
       </b-field>
+      <template v-slot:footer>
+        <b-field>
+          <a :href="urls.usernew">新規登録</a>
+        </b-field>
+      </template>
     </vform>
   </div>
 </template>
@@ -22,7 +31,8 @@ export default {
     return {
       email: '',
       password: '',
-      messages: messages
+      messages: messages,
+      urls: urls,
     }
   },
   components: {
