@@ -14,6 +14,6 @@ export default function({route, store, redirect}) {
  * @return {string} - 現在のページが認証不要かどうか
  */
 const isFreePage = (curpath) => {
-  const FREE_PAGE = [urls.signin]
+  const FREE_PAGE = [urls.signin, urls.usernew]
   return FREE_PAGE.includes(curpath)
 }
