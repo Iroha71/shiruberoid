@@ -8,8 +8,8 @@ export default $axios => resources => ({
     return $axios.delete(`${ resources }/sign_out`)
   },
 
-  create(param) {
-    return $axios.post(`${ resources }`, param)
+  create(email, password, name) {
+    return $axios.post(`${ resources }`, { email: email, password: password, name: name })
   },
 
   update(param) {

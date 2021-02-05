@@ -29,3 +29,10 @@ body {
   border: solid 1px $accent-color;
   border-radius: 0;
 }
+
+a {
+  color: $accent-color2;
+  &:hover {
+    color: white;
+  }
+}
