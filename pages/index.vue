@@ -1,42 +1,19 @@
 <template>
-  <section class="section">
-    <div class="columns is-mobile">
-      <button @click="getTest()">aaa</button>
-      <card
-        title="Free"
-        icon="github"
-      >
-        Open source on <a href="https://github.com/buefy/buefy">
-          GitHub
-        </a>
-      </card>
-
-      <card
-        title="Responsive"
-        icon="cellphone-link"
-      >
-        <b class="has-text-grey">
-          Every
-        </b> component is responsive
-      </card>
-
-      <card
-        title="Modern"
-        icon="alert-decagram"
-      >
-        Built with <a href="https://vuejs.org/">
-          Vue.js
-        </a> and <a href="http://bulma.io/">
-          Bulma
-        </a>
-      </card>
-
-      <card
-        title="Lightweight"
-        icon="arrange-bring-to-front"
-      >
-        No other internal dependency
-      </card>
+  <section class="container">
+    <div class="columns">
+      <div class="column is-4">
+        <div class="section">
+          <b-menu>
+            <b-menu-list label="Menu">
+              <b-menu-item label="カンバン一覧" />
+              <b-menu-item label="部屋" />
+            </b-menu-list>
+          </b-menu>
+        </div>
+      </div>
+      <div class="column is-4">
+        <img src="/characters/akane/all.png" alt="">
+      </div>
     </div>
   </section>
 </template>
@@ -51,9 +28,60 @@ export default {
     Card
   },
   methods: {
-    async getTest() {
-      console.log(await this.$api.kanban.index())
-    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+section {
+  perspective: 1000px;
+  .columns {
+    width: 100%;
+    margin: 0;
+    .section {
+      transform: rotate3d(0, 1, 0, 20deg);
+      background: rgba($color: $base-color, $alpha: 0.2);
+      filter: drop-shadow(2px 2px 0 $base-color);
+      .menu-label {
+        padding: 0.25rem;
+        background: $accent-color;
+        color: $main-color;
+      }
+      li{
+        border-left: 5px solid $accent-color;
+        border-bottom: solid 1px $accent-color;
+        & ::v-deep a {
+          overflow: hidden;
+          color: white;
+          transition: 0.5s;
+          background-color: transparent;
+          position: relative;
+          &:before {
+            content: "";
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background-color: $accent-color;
+            transition: 0.2s;
+          }
+        &:hover:before {
+          left: 0;
+        }
+        }
+      }
+    }
+    img {
+      filter: drop-shadow(2px 0px 0px $accent-color) drop-shadow(2px 0px 0px $base-color);
+    }
+  }
+}
+.card {
+  transform: rotate3d(0, 30, 0);
+  transform: rotate3d(0, 1, 0, 
+30deg
+);
+}
+</style>
