@@ -39,12 +39,14 @@ export default {
 
 <style lang="scss" scoped>
 nav {
-  background: rgb(39,39,41);
-  background: linear-gradient(180deg, rgba(39,39,41,1) 45%, rgba(92,92,92,1) 100%);
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(39,39,41,0) 41%, rgba(92,92,92,1) 100%);
   color: $accent-color;
   & ::v-deep .navbar-menu {
-    background: rgb(39,39,41);
-    background: linear-gradient(180deg, rgba(39,39,41,1) 45%, rgba(92,92,92,1) 100%);
+    background: linear-gradient(180deg, rgba(39,39,41,0.7) 41%, rgba(92,92,92,1) 100%);
   }
   & ::v-deep .navbar-link {
     color: $accent-color;

@@ -1,7 +1,7 @@
 <template>
-  <section class="container">
+  <section class="container fixed-height">
     <div class="columns">
-      <div class="column is-4">
+      <div class="column is-4-desktop is-hidden-mobile">
         <div class="section">
           <b-menu>
             <b-menu-list label="Menu">
@@ -36,8 +36,15 @@ export default {
 section {
   perspective: 1000px;
   .columns {
+    height: 100%;
     width: 100%;
     margin: 0;
+    padding: 1rem;
+    padding-bottom: 0;
+    .column {
+      height: 100%;
+      padding-bottom: 0;
+    }
     .section {
       transform: rotate3d(0, 1, 0, 20deg);
       background: rgba($color: $base-color, $alpha: 0.2);

@@ -36,3 +36,8 @@ a {
     color: white;
   }
 }
+
+.fixed-height {
+  overflow-y: hidden;
+  height: calc(100vh - 3.25rem);
+}

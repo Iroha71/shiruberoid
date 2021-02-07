@@ -1,7 +1,9 @@
 <template>
   <div>
     <Header />
-    <nuxt />
+    <div class="main-content">
+      <nuxt />
+    </div>
   </div>
 </template>
 
@@ -17,5 +19,10 @@ export default {
 <style lang="scss">
 html {
   overflow-x: auto;
+  .main-content {
+    position: relative;
+    z-index: 0;
+    padding-top: 3.25rem;
+  }
 }
 </style>
