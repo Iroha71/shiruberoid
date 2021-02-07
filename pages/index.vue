@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="column is-4">
-        <img src="/characters/akane/all.png" alt="">
+        <Character @click="changeEmote()" height="100%" :emote="currentEmote" />
       </div>
     </div>
   </section>
@@ -20,14 +20,22 @@
 
 <script>
 import Card from '~/components/Card'
-
+import Character from '~/components/Character'
 export default {
   name: 'HomePage',
-
+  data() {
+    return {
+      currentEmote: 'normal',
+    }
+  },
   components: {
-    Card
+    Card,
+    Character,
   },
   methods: {
+    changeEmote() {
+      this.currentEmote = this.currentEmote == 'normal' ? 'normal_open' : 'normal'
+    }
   }
 }
 </script>
