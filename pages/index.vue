@@ -12,7 +12,11 @@
         </div>
       </div>
       <div class="column is-4">
-        <Character @click="changeEmote()" height="100%" :emote="currentEmote" />
+        <Character ref="Character"
+            @click="igniteTouchEvent()"
+            height="100%"
+            :emote="currentEmote"
+            :voicename="voicename" />
       </div>
     </div>
   </section>
@@ -26,6 +30,7 @@ export default {
   data() {
     return {
       currentEmote: 'normal',
+      voicename: '',
     }
   },
   components: {
@@ -33,8 +38,9 @@ export default {
     Character,
   },
   methods: {
-    changeEmote() {
-      this.currentEmote = this.currentEmote == 'normal' ? 'normal_open' : 'normal'
+    igniteTouchEvent() {
+      this.voicename = 'akane_greeting'
+      this.$refs.Character.playVoice()
     }
   }
 }
