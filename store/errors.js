@@ -1,6 +1,6 @@
-export const state = {
+export const state = () => ({
   errors: {}
-}
+})
 
 export const mutations = {
   setErrors(state, errors) {
