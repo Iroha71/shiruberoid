@@ -1,8 +1,8 @@
-export const state = {
+export const state = () => ({
   access_token: '',
   client: '',
   uid: ''
-}
+})
 
 export const mutations = {
   setAuthInfo(state, infos) {
