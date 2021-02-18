@@ -38,6 +38,7 @@ export default {
     '~/plugins/api.js',
     '~/plugins/axios.js',
     '~/plugins/persistedstate.js',
+    { src: '~/plugins/mavon-editor.js', srr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -55,7 +56,11 @@ export default {
     '@nuxtjs/axios',
     'nuxt-client-init-module',
     '@nuxtjs/style-resources',
+    '@nuxtjs/markdownit',
   ],
+  markdownit: {
+    injected: true,
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

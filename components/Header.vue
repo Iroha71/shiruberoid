@@ -2,7 +2,7 @@
   <b-navbar>
     <template #start>
       <b-navbar-dropdown label="カンバン機能">
-        <b-navbar-item :href="urls.top">
+        <b-navbar-item :href="urls.kanbannew">
           作成
         </b-navbar-item>
         <b-navbar-item :href="urls.top">

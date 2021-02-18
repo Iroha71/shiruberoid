@@ -4,4 +4,5 @@ export default Object.freeze({
   redirect_signin: BASE_URL + 'sign_in',
   top: '/',
   usernew: '/user/new',
+  kanbannew: '/kanban/new',
 })
