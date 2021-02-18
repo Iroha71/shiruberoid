@@ -6,7 +6,7 @@ export const state = () => ({
 
 export const mutations = {
   setAuthInfo(state, infos) {
-    state.access_token = infos.access_token
+    state.access_token = infos.access_token ? infos.access_token : infos['access-token']
     state.client = infos.client
     state.uid = infos.uid
   }

@@ -4,7 +4,7 @@ let isSigninFaild = false
 let hadError = false
 export default ({app, redirect, $axios, route, store}) => {
   $axios.onRequest(config => {
-    config.headers.common['access_token'] = store.getters['authInfo/access_token']
+    config.headers.common['access-token'] = store.getters['authInfo/access_token']
     config.headers.common['client'] = store.getters['authInfo/client']
     config.headers.common['uid'] = store.getters['authInfo/uid']
   }),
