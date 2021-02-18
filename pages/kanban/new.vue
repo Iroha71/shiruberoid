@@ -41,6 +41,7 @@
 import Vform from '~/components/Form'
 import strlimits from '~/const/strlimits'
 import DTextarea from '~/components/DescTextarea'
+import urls from '~/const/urls'
 const CATEGORY_CREATEMODE = -1
 export default {
   components: {
@@ -90,8 +91,9 @@ export default {
     async createKanban() {
       this.kanban.notify_at = this.convertDateFormat(this.selectedDate, this.selectedTime)
       const newKanban = await this.$api.kanban.create(this.kanban)
-      
-      console.log(newKanban.data);
+      if (newKanban.status == 200) {
+        this.$router.push(urls.kanban)
+      }
     },
     /**
      * 日付と時間をバックエンドの形式に合わせる
